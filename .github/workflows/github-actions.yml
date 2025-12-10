@@ -8,7 +8,9 @@ on:
 jobs:
     full-test:
         container: cuaesd/aesd-autotest:24-assignment4-buildroot
-        runs-on: self-hosted
+        runs-on: ubuntu-latest
+        env:
+          BR2_EXTERNAL: ${{ github.workspace }}/base_external
         timeout-minutes: 120
         steps:
           - uses: actions/checkout@v2
